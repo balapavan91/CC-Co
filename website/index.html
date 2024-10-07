@@ -89,60 +89,49 @@
 </section>
 
 <script>
-    // Function to animate the counter
     function animateCounter(elementId, targetCount, duration) {
-        let count = 0; // Start from 0
-        const increment = Math.ceil(targetCount / (duration / 100)); // Calculate increment based on duration
+        let count = 0; 
+        const increment = Math.ceil(targetCount / (duration / 100)); 
         const element = document.getElementById(elementId);
         
         const interval = setInterval(() => {
-            count += increment; // Increase count
+            count += increment; 
             if (count >= targetCount) {
-                count = targetCount; // Cap at target count
-                clearInterval(interval); // Clear the interval
+                count = targetCount; 
+                clearInterval(interval); 
             }
-            element.innerText = count.toLocaleString(); // Update element text
-        }, 100); // Update every 100ms
+            element.innerText = count.toLocaleString(); 
+        }, 100); 
     }
-
-    // Intersection Observer for the stats cards
     const options = {
-        threshold: 1.0 // Trigger when 100% of the element is visible
+        threshold: 1.0 
     };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Start animations for the respective counts based on the card
                 switch (entry.target.id) {
                     case 'experienceCard':
-                        animateCounter('experienceCount', 10, 2000); // Count to 10 over 2 seconds
+                        animateCounter('experienceCount', 10, 2000); 
                         break;
                     case 'consultationsCard':
-                        animateCounter('consultationsCount', 14000, 2000); // Count to 14,000 over 2 seconds
+                        animateCounter('consultationsCount', 14000, 2000); 
                         break;
                     case 'compliancesCard':
-                        animateCounter('compliancesCount', 5000, 2000); // Count to 5,000 over 2 seconds
+                        animateCounter('compliancesCount', 5000, 2000); 
                         break;
                     case 'businessesCard':
-                        animateCounter('businessesCount', 2000, 2000); // Count to 2,000 over 2 seconds
+                        animateCounter('businessesCount', 2000, 2000); 
                         break;
                 }
-                observer.unobserve(entry.target); // Stop observing once the animation has started
+                observer.unobserve(entry.target); 
             }
         });
     }, options);
-
-    // Start observing each card
     document.querySelectorAll('.card').forEach(card => {
         observer.observe(card);
     });
 </script>
-
-
-
-
-
 
 <section id="services" class="services-section">
     <div class="container">
