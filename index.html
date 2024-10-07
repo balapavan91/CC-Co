@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CC & Co</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="bg-primary text-white py-3">
+    <div class="container d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <img src="https://i.postimg.cc/ydPdqy9F/CA-India-Logo.png" alt="Company Logo" class="img-fluid me-3" style="height: 50px;">
+            <h1>CC & Co</h1>
+        </div>
+        <nav class="nav">
+            <a class="nav-link text-white" href="#home"><i class="bi bi-house"></i> Home</a>
+            <a class="nav-link text-white" href="#about"><i class="bi bi-info-circle"></i> About Us</a>
+            <a class="nav-link text-white" href="#services"><i class="bi bi-briefcase"></i> Services</a>
+            <a class="nav-link text-white" href="#team"><i class="bi bi-people"></i> Team</a>
+            <a class="nav-link text-white" href="#contact"><i class="bi bi-envelope"></i> Contact Us</a>
+        </nav>
+    </div>
+</header>
+
+<div class="welcome-section">
+    <div class="welcome-content">
+        <div class="welcome-title">Welcome to CC & Co</div>
+        <div class="welcome-description">Your trusted partner in financial excellence.</div>
+        <div class="welcome-quote">"Your success is our commitment!"</div>
+    </div>
+</div>
+
+<section class="about py-5" id="about">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="col-md-6">
+            <h2>About Us</h2>
+            <p>At <strong>CC & Co</strong>, we are a dynamic team of seasoned professionals committed to delivering cutting-edge accounting, taxation, and advisory solutions. Established in October 2019 in Hyderabad, our consulting firm is built on a foundation of innovation and expertise, combining traditional practices with modern technologies to drive business excellence.</p>
+            <p>We specialize in <strong>direct tax</strong>, <strong>indirect tax</strong>, <strong>internal audits</strong>, <strong>statutory audits</strong>, and <strong>special engagements</strong>, all with a core focus on achieving better compliance management and fostering good corporate governance. Our team includes <strong>Chartered Accountants</strong>, <strong>Cost and Management Accountants</strong>, <strong>Company Secretaries</strong>, and we are closely associated with a consulting actuary to provide comprehensive services tailored to your business needs.</p>
+            <p>What sets us apart is our ability to integrate <strong>artificial intelligence</strong> and <strong>data analytics</strong> into our service offerings. By leveraging advanced tools and methodologies, we offer strategic insights that help businesses optimize processes, ensure compliance, and make informed decisions in an increasingly complex regulatory environment. Our forward-thinking approach allows us to not only navigate challenges but to transform them into opportunities for growth.</p>
+            <p>At CC & Co, we are dedicated to being more than just consultants – we are your partners in achieving financial success, ensuring that your business remains agile, compliant, and future-ready.</p>
+        </div>
+        <div class="col-md-6">
+            <img src="https://i.postimg.cc/65WQWtSX/image.png" alt="About Us Image" class="img-fluid">
+        </div>
+    </div>
+</section>
+
+<section id="stats" class="stats-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Our Achievements</h2>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card text-center h-100" id="experienceCard">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <h3 class="card-title">Years Of Experience</h3>
+                        <div id="experienceCount" class="count" style="font-size: 2.5rem; font-weight: bold; color: #4a90e2;">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center h-100" id="consultationsCard">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <h3 class="card-title">Consultations</h3>
+                        <div id="consultationsCount" class="count" style="font-size: 2.5rem; font-weight: bold; color: #4a90e2;">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center h-100" id="compliancesCard">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <h3 class="card-title">Compliances Provided</h3>
+                        <div id="compliancesCount" class="count" style="font-size: 2.5rem; font-weight: bold; color: #4a90e2;">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card text-center h-100" id="businessesCard">
+                    <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                        <h3 class="card-title">Businesses Served</h3>
+                        <div id="businessesCount" class="count" style="font-size: 2.5rem; font-weight: bold; color: #4a90e2;">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function animateCounter(elementId, targetCount, duration) {
+        let count = 0; 
+        const increment = Math.ceil(targetCount / (duration / 100)); 
+        const element = document.getElementById(elementId);
+        
+        const interval = setInterval(() => {
+            count += increment; 
+            if (count >= targetCount) {
+                count = targetCount; 
+                clearInterval(interval); 
+            }
+            element.innerText = count.toLocaleString(); 
+        }, 100); 
+    }
+    const options = {
+        threshold: 1.0 
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                switch (entry.target.id) {
+                    case 'experienceCard':
+                        animateCounter('experienceCount', 10, 2000); 
+                        break;
+                    case 'consultationsCard':
+                        animateCounter('consultationsCount', 14000, 2000); 
+                        break;
+                    case 'compliancesCard':
+                        animateCounter('compliancesCount', 5000, 2000); 
+                        break;
+                    case 'businessesCard':
+                        animateCounter('businessesCount', 2000, 2000); 
+                        break;
+                }
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, options);
+    document.querySelectorAll('.card').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+
+<section id="services" class="services-section">
+    <div class="container">
+        <h2>Our Services</h2>
+
+        <div class="service-box">
+            <h3>ROC Services</h3>
+            <img src="https://i.postimg.cc/gk0KTMRH/ROC-Services.jpg" alt="ROC Services" class="img-fluid img-small animate-image" style="height: 250px;">
+            <ul>
+                <li><strong>Streamlining Regulatory Compliance with ROC Services:</strong><br> In the intricate world of corporate governance, regulatory compliance is essential for business credibility and success. At CC & Co, we offer comprehensive ROC services that ensure businesses adhere to the Registrar of Companies (ROC) regulations. Our client-focused approach simplifies compliance, allowing businesses to navigate the legal landscape with confidence.</li>
+                <li><strong>Incorporation and Company Formation:</strong><br> We assist entrepreneurs in forming new companies, guiding them through incorporation, selecting the optimal business structure, and obtaining necessary approvals for seamless registration.</li>
+                <li><strong>Annual Compliance Filings:</strong><br> We manage annual filings with the ROC, including financial statements, returns, and other documents to ensure timely and accurate compliance.</li>
+                <li><strong>Changes in Corporate Structure:</strong><br> For businesses undergoing structural changes, we handle ROC-related documentation, from name and office changes to share capital adjustments.</li>
+                <li><strong>Statutory Audits and Certifications:</strong><br> Our audits provide independent assessments of financial records, ensuring compliance with regulatory standards, accompanied by required certifications.</li>
+                <li><strong>Board Meetings and Minutes Compliance:</strong><br> We help businesses maintain proper documentation of board meetings, ensuring adherence to ROC protocols and procedures.</li>
+                <li><strong>Legal Due Diligence:</strong><br> For mergers, acquisitions, or partnerships, we conduct thorough due diligence, ensuring legal and regulatory compliance with ROC requirements.</li>
+                <li><strong>Regulatory Liaison:</strong><br> We act as a bridge between businesses and regulatory authorities, streamlining approvals, addressing queries, and resolving regulatory issues.</li>
+            </ul>
+        </div>
+
+        <div class="service-box">
+            <h3>Risk Advisory Services</h3>
+            <img src="https://i.postimg.cc/MHBz60fP/Risk-Advisory.jpg" alt="Risk Advisory Services" class="img-fluid img-small animate-image" style="height: 250px;">
+            <ul>
+                <li><strong>Elevating Business Confidence Through Risk Management:</strong><br> Businesses face a dynamic array of risks. At CC & Co, we provide comprehensive risk advisory services to help organizations navigate uncertainties and safeguard their operations.</li>
+                <li><strong>Holistic Risk Assessment:</strong><br> Our risk assessment covers financial, operational, technological, and compliance risks, offering a full-spectrum analysis tailored to your business.</li>
+                <li><strong>Customized Risk Mitigation Strategies:</strong><br> We craft mitigation strategies suited to specific business objectives, addressing challenges like market volatility, regulatory changes, and cybersecurity threats.</li>
+                <li><strong>Regulatory Compliance Management:</strong><br> We offer proactive compliance management, ensuring businesses stay ahead of regulatory changes and mitigate non-compliance risks.</li>
+                <li><strong>Cybersecurity Risk Management:</strong><br> Our team helps businesses build robust defenses against cyber threats, safeguarding sensitive data and digital assets.</li>
+                <li><strong>Crisis Management and Business Continuity Planning:</strong><br> We develop crisis management strategies and business continuity plans to prepare organizations for unforeseen events and ensure operational resilience.</li>
+                <li><strong>Training and Awareness Programs:</strong><br> We offer workforce training to raise awareness of risks, promoting a culture of compliance and risk mitigation.</li>
+                <li><strong>Continuous Monitoring and Improvement:</strong><br> Risk management is a continuous process. We provide ongoing monitoring and refinement of risk strategies to adapt to evolving challenges.</li>
+            </ul>
+        </div>
+
+        <div class="service-box">
+            <h3>Taxation Services</h3>
+            <img src="https://i.postimg.cc/yYF72PHW/Taxation.jpg" alt="Taxation Services" class="img-fluid img-small animate-image" style="height: 250px;">
+            <ul>
+                <li><strong>Navigating the Complexities of Taxation:</strong><br> Our taxation services at CC & Co are designed to ensure businesses and individuals navigate tax regulations with precision and confidence. We provide expert guidance, compliance, and tax planning solutions for all taxation needs.</li>
+                <li><strong>Income Tax Services:</strong><br> We offer a wide range of income tax services, from planning and filing to addressing notices and managing tax-related disputes.</li>
+                <li><strong>Goods and Services Tax (GST):</strong><br> Our team provides full GST support, from registration to filing returns and applying for refunds, ensuring compliance with all regulatory obligations.</li>
+                <li><strong>Tax Compliance and Risk Management:</strong><br> Our proactive approach helps businesses stay compliant with changing tax regulations, reducing the risk of non-compliance penalties.</li>
+            </ul>
+        </div>
+
+        <div class="service-box">
+            <h3>Accounting Services</h3>
+            <img src="https://i.postimg.cc/KjG5FfWF/Accounting.jpg" alt="Accounting Services" class="img-fluid img-small animate-image" style="height: 250px;">
+            <ul>
+                <li><strong>Streamlining Financial Management with Expert Accounting:</strong><br> At CC & Co, our accounting services are tailored to help businesses maintain accurate financial records, comply with regulations, and make informed decisions.</li>
+                <li><strong>Bookkeeping and Financial Statement Preparation:</strong><br> We provide meticulous bookkeeping services, ensuring accurate financial records and timely financial statements.</li>
+                <li><strong>Management Accounting:</strong><br> Our management accounting services provide insights that empower decision-making, budget control, and performance evaluation.</li>
+                <li><strong>Financial Audits:</strong><br> We conduct comprehensive audits to ensure the accuracy and reliability of financial statements and compliance with standards.</li>
+            </ul>
+        </div>
+
+        <div class="service-box">
+            <h3>Data Analytics & MIS Services</h3>
+            <img src="https://i.postimg.cc/Nj9kg5dy/Data-Analytics-MIS-Reporting.jpg" alt="Data Analytics & MIS Services" class="img-fluid img-small animate-image" style="height: 250px;">
+            <ul>
+                <li><strong>Transforming Data into Insights:</strong><br> Our data analytics and Management Information System (MIS) services enable businesses to harness data for strategic decision-making and operational efficiency.</li>
+                <li><strong>Data Analysis and Reporting:</strong><br> We provide thorough data analysis, delivering actionable insights and reports that drive performance improvement.</li>
+                <li><strong>Predictive Analytics:</strong><br> Our predictive analytics services help businesses anticipate market trends and customer behavior, enhancing competitive advantage.</li>
+                <li><strong>Dashboard Development:</strong><br> We create customized dashboards that provide real-time visibility into key metrics, facilitating better decision-making.</li>
+            </ul>
+        </div>
+
+        <div class="service-box">
+            <h3>Financial Consulting Services</h3>
+            <img src="https://i.postimg.cc/QMcgTvGh/Financial-Consulting-Services.jpg" alt="Financial Consulting Services" class="img-fluid img-small animate-image" style="height: 250px;">
+            <ul>
+                <li><strong>Guiding Your Financial Future:</strong><br> Our financial consulting services provide expert guidance to help businesses navigate challenges, optimize operations, and drive growth.</li>
+                <li><strong>Business Valuation:</strong><br> We offer accurate business valuations for transactions, mergers, and financial reporting, ensuring informed decisions.</li>
+                <li><strong>Capital Structuring and Fundraising:</strong><br> Our team provides strategies for effective capital structuring, helping businesses access funding and manage financial risks.</li>
+                <li><strong>Financial Planning and Analysis:</strong><br> We develop comprehensive financial plans, forecasts, and analyses to support strategic decision-making.</li>
+            </ul>
+        </div>
+
+        <div class="service-box">
+            <h3>Auditing Services</h3>
+            <img src="https://i.postimg.cc/Y0yknjF7/depositphotos-11033053-stock-photo-businesswoman-checking-bills-using-magnifying.jpg" alt="Auditing Services" class="img-fluid img-small animate-image" style="height: 250px;">
+            <ul>
+                <li><strong>Comprehensive Auditing for Transparency and Compliance:</strong><br> At CC & Co, our auditing services are designed to enhance transparency and trust in financial reporting. We conduct thorough audits that assess the accuracy and reliability of financial statements.</li>
+                <li><strong>Internal Audits:</strong><br> Our internal audit services evaluate the effectiveness of internal controls, risk management, and governance processes, helping organizations improve operational efficiency.</li>
+                <li><strong>External Audits:</strong><br> We conduct independent external audits to provide stakeholders with assurance regarding the integrity of financial reports and compliance with applicable laws and standards.</li>
+                <li><strong>Special Purpose Audits:</strong><br> We offer specialized audit services tailored to specific business needs, such as compliance audits, forensic audits, and operational audits.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<section class="team py-5" id="team">
+    <div class="container">
+        <h2 class="text-center mb-5">Meet Our Team</h2>
+        
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h4>CA Chakradhar Chouta (Retired)</h4>
+                <p>With over 10 years of extensive experience in accounting, taxation, and corporate governance, CA Chakradhar is recognized for his profound knowledge and client-centric approach. His ability to simplify complex tax laws allows clients to navigate their financial responsibilities with confidence and ease.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h4>CS Vasavi Chouta</h4>
+                <p>Specializing in company law and regulatory compliance, Vasavi brings invaluable insights into ROC matters and corporate restructuring. Her decade-long experience empowers clients to navigate complex regulations, ensuring they stay compliant and informed in an ever-changing legal landscape.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h4>CWA Aditya Ainavolu</h4>
+                <p>Aditya boasts a wealth of knowledge in cost management and financial planning, with more than 10 years of experience in optimizing resource allocation. His strategic insights enable clients to develop effective financial strategies that drive growth and enhance operational efficiency.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h4>CA Sandeep Kancherla</h4>
+                <p>With a dedicated focus on auditing and taxation, Sandeep brings over a decade of experience in ensuring compliance and optimizing tax structures. His meticulous approach helps businesses minimize liabilities while maximizing financial performance, providing peace of mind for his clients.</p>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h4>Data Engineer Sai Teja</h4>
+                <p>Sai Teja is an expert in AI data analytics and commerce, with over 10 years of experience in data analytics and MIS reporting. His proficiency in transforming data into actionable insights empowers businesses to make informed decisions and foster strategic growth in today’s data-driven environment.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="contact" class="contact-section py-5">
+    <div class="container">
+        <h2>Contact Us</h2>
+            <h4>Contact Information</h4>
+            <p><strong>Phone:</strong> +919052988112</p>
+            <p><strong>Email:</strong> Info@ccandco.in</p>
+            <p><strong>Address:</strong> Shop No-1&2, Part of Vijetha Video & Studio, Vijetha Super Market Cellar, Chinnam Balaji Towers, D No-5-4/11 C/4 Chandannager, Hyderabad, Pin 500050</p>
+        </div>
+    </div>
+</section>
+
+<footer class="bg-primary text-white text-center py-3">
+    <p>&copy; 2024 CC & Co. All Rights Reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
